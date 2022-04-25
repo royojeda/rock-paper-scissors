@@ -15,4 +15,61 @@ function computerPlay() {
   }
   return hand;
 }
-console.log(computerPlay());
+
+const playerSelection = "rock";
+const computerSelection = computerPlay();
+
+function playRound(playerSelection, computerSelection) {
+  playerSelection = playerSelection.toLowerCase();
+  switch (playerSelection) {
+    case 'rock':
+      switch (computerSelection) {
+        case 'rock':
+          roundResult = 'This round was a tie!';
+          break;
+        case 'paper':
+          roundResult = 'You lost this round! Paper beats Rock!';
+          break;
+        case 'scissors':
+          roundResult = 'You won this round! Rock beats Scissors!';
+          break;
+        default:
+          break;
+      }
+      break;
+    case 'paper':
+      switch (computerSelection) {
+        case 'rock':
+          roundResult = 'You won this round! Paper beats Rock!';
+          break;
+        case 'paper':
+          roundResult = 'This round was a tie!';
+          break;
+        case 'scissors':
+          roundResult = 'You lost this round! Scissors beat Paper!';
+          break;
+        default:
+          break;
+      }
+      break;
+    case 'scissors':
+      switch (computerSelection) {
+        case 'rock':
+          roundResult = 'You lost this round! Rock beats Scissors!';
+          break;
+        case 'paper':
+          roundResult = 'You won this round! Scissors beat Paper';
+          break;
+        case 'scissors':
+          roundResult = 'This round was a tie!';
+          break;
+        default:
+          break;
+      }
+      break;
+    default:
+      break;
+  }
+  return roundResult;
+}
+console.log(playRound(playerSelection, computerSelection));
