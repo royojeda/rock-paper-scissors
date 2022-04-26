@@ -73,31 +73,3 @@ function playRound(playerSelection, computerSelection) {
 let playerScore = 0;
 let computerScore = 0;
 let currentScore;
-
-function game() {
-  for (let i = 0; i < 5; i++) {
-    playerSelection = prompt('Enter the hand that you want to play: ');
-    computerSelection = computerPlay();
-    currentRoundResult = playRound(playerSelection, computerSelection);
-    if (currentRoundResult.includes('won')) {
-      playerScore++;
-    } 
-    else if (currentRoundResult.includes('lost')) {
-      computerScore++;
-    }
-    currentScore = playerScore + ":" + computerScore;
-    console.log(currentRoundResult + " The running score is " + currentScore);
-  }
-  if (playerScore > computerScore) {
-    matchResult = 'You\'ve won the match!';
-  } 
-  else if (playerScore < computerScore) {
-    matchResult = 'You\'ve lost the match!';
-  } 
-  else {
-    matchResult = 'The match was a tie!';
-  }
-  console.log(matchResult + " The final score is " + currentScore);
-}
-
-game();
