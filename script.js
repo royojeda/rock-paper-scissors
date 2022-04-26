@@ -73,3 +73,12 @@ function playRound(playerSelection, computerSelection) {
 let playerScore = 0;
 let computerScore = 0;
 let currentScore;
+
+const buttons = document.querySelectorAll('button');
+
+buttons.forEach((button) => {
+  button.addEventListener('click', () => {
+    playRound(button.id, computerPlay());
+    console.log(roundResult);
+  });
+});
