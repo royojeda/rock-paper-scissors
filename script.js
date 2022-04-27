@@ -74,19 +74,22 @@ let playerScore = 0;
 let computerScore = 0;
 let currentScore;
 
-const buttons = document.querySelectorAll('button');
+const tryAgain = document.querySelector('#tryAgain');
+tryAgain.style.display = 'none';
+
+const hands = document.querySelectorAll('.hands');
 let result = document.querySelector('#result');
 let score = document.querySelector('#score');
 let winner = document.querySelector('#winner');
 
-  buttons.forEach((button) => {
-    button.addEventListener('click', function() {
-      play(button);
-    });
+hands.forEach((hand) => {
+  hand.addEventListener('click', function() {
+    play(hand);
   });
+});
 
-function play(button) {
-  playRound(button.id, computerPlay());
+function play(hand) {
+  playRound(hand.id, computerPlay());
   result.textContent = roundResult;
   if (roundResult.includes('won')) {
     playerScore++;
@@ -101,5 +104,26 @@ function play(button) {
     } else if (computerScore === 5) {
       winner.textContent = 'Oh no! You\'ve lost the game. Try again!';
     }
+    hands.forEach((hand) => {
+      hand.style.display = 'none';
+    });
+    tryAgain.style.display = 'block';
   }
+}
+
+tryAgain.addEventListener('click', resetPage);
+
+function resetPage() {
+  playerScore = 0;
+  computerScore = 0;
+  currentScore = '';
+
+  result.textContent = '';
+  score.textContent = '';
+  winner.textContent = '';
+
+  hands.forEach((hand) => {
+    hand.style.display = 'inline';
+  });
+  tryAgain.style.display = 'none';
 }
