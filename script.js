@@ -75,10 +75,11 @@ let computerScore = 0;
 let currentScore;
 
 const buttons = document.querySelectorAll('button');
+let div = document.querySelector('div');
 
 buttons.forEach((button) => {
   button.addEventListener('click', () => {
     playRound(button.id, computerPlay());
-    console.log(roundResult);
+    div.textContent = roundResult;
   });
 });
