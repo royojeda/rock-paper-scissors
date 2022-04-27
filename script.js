@@ -75,11 +75,19 @@ let computerScore = 0;
 let currentScore;
 
 const buttons = document.querySelectorAll('button');
-let div = document.querySelector('div');
+let result = document.querySelector('#result');
+let score = document.querySelector('#score');
 
 buttons.forEach((button) => {
   button.addEventListener('click', () => {
     playRound(button.id, computerPlay());
-    div.textContent = roundResult;
+    result.textContent = roundResult;
+    if (roundResult.includes('won')) {
+      playerScore++;
+    } else if (roundResult.includes('lost')) {
+      computerScore++;
+    }
+    currentScore = `Player ${playerScore} : ${computerScore} Computer`;
+    score.textContent = currentScore;
   });
 });
