@@ -75,7 +75,7 @@ let computerScore = 0;
 let currentScore;
 
 const tryAgain = document.querySelector('#tryAgain');
-tryAgain.style.display = 'none';
+tryAgain.style['display'] = 'none';
 
 const hands = document.querySelectorAll('.hands');
 let result = document.querySelector('#result');
@@ -105,9 +105,9 @@ function play(hand) {
       winner.textContent = 'Oh no! You\'ve lost the game. Try again!';
     }
     hands.forEach((hand) => {
-      hand.style.display = 'none';
+      hand.style['display'] = 'none';
     });
-    tryAgain.style.display = 'block';
+    tryAgain.style['display'] = 'block';
   }
 }
 
@@ -123,7 +123,7 @@ function resetPage() {
   winner.textContent = '';
 
   hands.forEach((hand) => {
-    hand.style.display = 'inline';
+    hand.style['display'] = 'inline';
   });
-  tryAgain.style.display = 'none';
+  tryAgain.style['display'] = 'none';
 }
